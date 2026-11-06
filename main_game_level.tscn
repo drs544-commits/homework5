@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://cs6v5scear6ml"]
+
+[ext_resource type="PackedScene" uid="uid://bhsysbgv6ie10" path="res://scenes/ui/game_ui.tscn" id="2_l06gb"]
+[ext_resource type="Script" uid="uid://cmevpxyvtu3s6" path="res://scenes/levels/minimap.gd" id="3_v4sei"]
+[ext_resource type="PackedScene" uid="uid://dg8s0mr0uyamx" path="res://scenes/player/player.tscn" id="3_ys2ra"]
+[ext_resource type="Texture2D" uid="uid://o4duvy8w6e18" path="res://ASSETS/Art/Backgrounds/grass_tile.jpg" id="4_f1jnw"]
+[ext_resource type="PackedScene" uid="uid://b27b7fxddxot2" path="res://scenes/player/coin.tscn" id="4_g7rhr"]
+[ext_resource type="PackedScene" uid="uid://3m57s1ut1yu2" path="res://scenes/ENEMIES/blob_spawner.tscn" id="4_ys2ra"]
+
+[node name="MainGameLevel" type="Node2D" unique_id=407925075]
+
+[node name="LevelBackground" type="TextureRect" parent="." unique_id=1622687349]
+offset_right = 1296.0
+offset_bottom = 730.0
+texture = ExtResource("4_f1jnw")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="GameUI" parent="." unique_id=1187260678 instance=ExtResource("2_l06gb")]
+
+[node name="Minimap" type="Panel" parent="GameUI" unique_id=34732253 node_paths=PackedStringArray("player")]
+custom_minimum_size = Vector2(160, 160)
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -170.0
+offset_top = 13.0
+offset_right = -10.0
+offset_bottom = 173.0
+grow_horizontal = 0
+script = ExtResource("3_v4sei")
+player = NodePath("../../Player")
+
+[node name="Coin" parent="GameUI" unique_id=217816238 groups=["coins"] instance=ExtResource("4_g7rhr")]
+position = Vector2(1039, 325)
+
+[node name="Player" parent="." unique_id=435346633 groups=["Player"] instance=ExtResource("3_ys2ra")]
+position = Vector2(186, 357)
+
+[node name="BlobSpawner" parent="." unique_id=965739837 instance=ExtResource("4_ys2ra")]
+position = Vector2(561, 328)

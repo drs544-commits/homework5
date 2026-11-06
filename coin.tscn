@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://b27b7fxddxot2"]
+
+[ext_resource type="Texture2D" uid="uid://bl04lnquf3ohb" path="res://icon.svg" id="1_0wpey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo35u"]
+size = Vector2(133, 132)
+
+[node name="Coin" type="Area2D" unique_id=217816238]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=445853309]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_mo35u")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1625258808]
+texture = ExtResource("1_0wpey")
